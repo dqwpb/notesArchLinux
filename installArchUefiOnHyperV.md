@@ -68,6 +68,7 @@ timedatectl set-timezone Asia/Taipei
 ## 6. 設定使用者
 ```bash
 useradd -m -g users -s /bin/bash <username>
+passwd <username>
 visudo
 ---
 <username> ALL=(ALL) ALL
