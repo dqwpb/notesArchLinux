@@ -1,6 +1,6 @@
 # Note of Note of install archlinux on hyperv with legacy boot(grub-bios) and lxqt desktop
-## Add RemoteFX 3D 視訊卡: 
-## 1.
+## 0. Add RemoteFX 3D 視訊卡: 
+## 1. 硬碟分割與格式化
 ```bash
 lsblk
 cfdisk /dev/sda
@@ -15,7 +15,7 @@ mkswap /dev/sda2
 swapon /dev/sda2
 ```
 
-## 2.
+## 2. 設定鏡像與網路
 ```bash
 nano /etc/pacman.d/mirrorlist
 ---
@@ -29,13 +29,13 @@ echo 'nameserver 8.8.4.4 >> /etc/resolv.conf'
 ping -c 4 tw.yahoo.com
 ```
 
-## 3.
+## 3. 掛載硬碟
 ```bash
 mount /dev/sda1 /mnt
 pacstrap /mnt base base-devel intel-ucode grub-bios
 ```
 
-## 4.
+## 4. 產生fstab
 ```bash
 genfstab -U -p /mnt > /mnt/etc/fstab
 ```
@@ -45,7 +45,7 @@ genfstab -U -p /mnt > /mnt/etc/fstab
 arch-chroot /mnt /bin/bash
 ```
 
-## 5. 
+## 5. 設定語言與時區
 ```bash
 echo LANG=en_US.UTF-8 > /etc/locale.conf 
 echo archbiosv3 > /etc/hostname
@@ -61,7 +61,7 @@ timedatectl
 timedatectl set-timezone Asia/Taipei
 ```
 
-## 6. 
+## 6. 設定使用者
 ```bash
 useradd -m -g users -s /bin/bash <username>
 visudo
@@ -70,7 +70,7 @@ visudo
 ---
 ```
 
-## 7. 
+## 7. 安裝開機檔案
 ```bash
 grub-install --target=i386-pc /dev/sda
 nano /etc/default/grub
@@ -80,7 +80,7 @@ GRUB_CMDLINE_LINUX_DEFAULT="quiet splash video=hyperv_fb:800:600"
 grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-## 8. 
+## 8. 設定網路腳本
 ```bash
 nano /home/<username>/setstaticnetwork.sh
 ---
@@ -109,7 +109,7 @@ echo 'nameserver '$dns > /etc/resolv.conf
 bash /home/<username>/setstaticnetwork.sh
 ```
 
-## 9.
+## 9. 安裝視窗環境+視窗管理+桌面
 ```bash
 pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils xorg-twm xterm xorg-xclock
 pacman -S xf86-video-fbdev
@@ -130,8 +130,14 @@ nano /home/<username>/.bash_profile
 ---
 ```
 
+## 結束安裝
+
 ```bash
 exit
 umount -R /mnt
 reboot now
 ```
+
+## 畫面
+
+![PrtSc](archlinux-bios-hyperv.png)
