@@ -1,4 +1,4 @@
-# Note of Note of install archlinux on hyperv with legacy boot(grub-bios) and lxqt desktop
+# Note of install archlinux on hyperv with legacy boot(grub-bios) and lxqt desktop
 ## 0. Add RemoteFX 3D 視訊卡: 
 ## 1. 硬碟分割與格式化
 ```bash
