@@ -52,7 +52,7 @@ arch-chroot /mnt /bin/bash
 ## 5. 設定語言與時區
 ```bash
 echo LANG=en_US.UTF-8 > /etc/locale.conf 
-echo archbiosv3 > /etc/hostname
+echo <hostname> > /etc/hostname
 nano /etc/locale.gen
 ---
 en_US.UTF-8 UTF-8
