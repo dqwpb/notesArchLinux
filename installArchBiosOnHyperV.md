@@ -1,7 +1,7 @@
 # Note of Note of install archlinux on hyperv with legacy boot(grub-bios) and lxqt desktop
 ## Add RemoteFX 3D 視訊卡: 
 ## 1.
-'''{bash}
+'''bash
 lsblk
 cfdisk /dev/sda
 ---
@@ -16,7 +16,7 @@ swapon /dev/sda2
 '''
 
 ## 2.
-'''{bash}
+'''bash
 nano /etc/pacman.d/mirrorlist
 ---
 Server = http://archlinux.cs.nctu.edu.tw/$repo/os/$arch
@@ -30,23 +30,23 @@ ping -c 4 tw.yahoo.com
 '''
 
 ## 3.
-'''{bash}
+'''bash
 mount /dev/sda1 /mnt
 pacstrap /mnt base base-devel intel-ucode grub-bios
 '''
 
 ## 4.
-'''{bash}
+'''bash
 genfstab -U -p /mnt > /mnt/etc/fstab
 '''
 (**ps**: genfstab -U -p /mnt | sudo tee /mnt/etc/fstab # archbox)
 
-'''{bash}
+'''bash
 arch-chroot /mnt /bin/bash
 '''
 
 ## 5. 
-'''{bash}
+'''bash
 echo LANG=en_US.UTF-8 > /etc/locale.conf 
 echo archbiosv3 > /etc/hostname
 nano /etc/locale.gen
@@ -62,7 +62,7 @@ timedatectl set-timezone Asia/Taipei
 '''
 
 ## 6. 
-'''{bash}
+'''bash
 useradd -m -g users -s /bin/bash <username>
 visudo
 ---
@@ -71,7 +71,7 @@ visudo
 '''
 
 ## 7. 
-'''{bash}
+'''bash
 grub-install --target=i386-pc /dev/sda
 nano /etc/default/grub
 ---
@@ -81,7 +81,7 @@ grub-mkconfig -o /boot/grub/grub.cfg
 '''
 
 ## 8. 
-'''{bash}
+'''bash
 nano /home/<username>/setstaticnetwork.sh
 ---
 #!/bin/bash
@@ -110,7 +110,7 @@ bash /home/<username>/setstaticnetwork.sh
 '''
 
 ## 9.
-'''{bash}
+'''bash
 pacman -S xorg-server xorg-xinit xorg-utils xorg-server-utils xorg-twm xterm xorg-xclock
 pacman -S xf86-video-fbdev
 pacman -S lxqt
@@ -130,7 +130,7 @@ nano /home/<username>/.bash_profile
 ---
 '''
 
-'''{bash}
+'''bash
 exit
 umount -R /mnt
 reboot now
