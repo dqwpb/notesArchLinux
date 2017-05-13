@@ -32,7 +32,7 @@ ping -c 4 tw.yahoo.com
 ## 3. 掛載硬碟
 ```bash
 mount /dev/sda1 /mnt
-pacstrap /mnt base base-devel intel-ucode grub-bios
+pacstrap -i /mnt base base-devel intel-ucode grub-bios
 ```
 
 ## 4. 產生fstab
