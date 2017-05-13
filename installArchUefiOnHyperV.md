@@ -36,7 +36,7 @@ ping -c 4 tw.yahoo.com
 mount /dev/sda2 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
-pacstrap /mnt base base-devel intel-ucode grub
+pacstrap -i /mnt base base-devel intel-ucode grub
 ```
 
 ## 4. 產生fstab
