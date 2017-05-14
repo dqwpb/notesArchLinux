@@ -57,8 +57,8 @@ mdadm --assemble --scan
 ```bash
 cat /proc/mdstat
 ---
-stride = chunk/block      md2和md3的stride = 65526/4 = 16384, md4的stride = 65536/8 = 8192
-stripe = \#disk * stride   md2和md3的stripe = 16384*2 = 32768, md4的stride = 8192*2 = 16384
+stride = chunk/block         md2和md3的stride = 65526/4 = 16384, md4的stride = 65536/8 = 8192
+stripe = no(disk) * stride   md2和md3的stripe = 2*16384 = 32768, md4的stride = 2*8192 = 16384
 ---
 mkfs.vfat -v -F 32 /dev/sda1
 mkfs.ext4 -v -L <name{2,3,4}> -m -0 -b 4096 -E stride=<stride> stripe-width=<stripe> /dev/md{2,3,4}
