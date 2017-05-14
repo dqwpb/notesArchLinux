@@ -1,5 +1,5 @@
-# Note of install archlinux with uefi boot and mdadm for RAID 1
-## 0. info:
+# Note of install archlinux with uefi boot on RAID 1 hdd
+### info:
 ```txt
 /sda
  +-sda1 /boot   512M
@@ -21,8 +21,6 @@
   +-md4 /db
  +-sdb5 /swap
 ```
-
-## 1. 硬碟分割與格式化
 
 ### 之前玩壞的，要重裝:
 ```bash
@@ -60,7 +58,7 @@ mdadm --assemble --scan
 cat /proc/mdstat
 ---
 stride = chunk/block      md2和md3的stride = 65526/4 = 16384, md4的stride = 65536/8 = 8192
-stripe = #disk * stride   md2和md3的stripe = 16384*2 = 32768, md4的stride = 8192*2 = 16384
+stripe = \#disk * stride   md2和md3的stripe = 16384*2 = 32768, md4的stride = 8192*2 = 16384
 ---
 mkfs.vfat -v -F 32 /dev/sda1
 mkfs.ext4 -v -L <name{2,3,4}> -m -0 -b 4096 -E stride=<stride> stripe-width=<stripe> /dev/md{2,3,4}
