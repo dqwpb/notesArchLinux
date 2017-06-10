@@ -257,6 +257,13 @@ q
 - 在**konsole**複製/貼上為: <C+S>+C/V
 - 在**urxvt**複製/貼上為: <C+A>+C/V
 
+### 4.d. Java:
+```bash
+sudo pacman -S jdk8-openjdk openjdk8-doc java-openjfx
+java -version
+javac -version
+```
+
 (待續)
 1. openjdk
 2. packet tracer
