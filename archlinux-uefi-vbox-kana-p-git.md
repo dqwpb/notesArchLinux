@@ -214,6 +214,47 @@ echo 'nameserver '$dns1 > /etc/resolv.conf
 echo 'nameserver '$dns2 >> /etc/resolv.conf
 ---
 ```
+**ps1**: kana-p桌面上方功能列有**network manager**界面，存檔後可不用一直設定。
+**ps2**: **dhcp**功能待研究，參考: [官方網站](https://wiki.archlinux.org/index.php/Network_configuration_(正體中文))
+### 4.b. 中文顯示與輸入法: fcitx
+```bash
+sudo pacman -S fcitx fcitx-chewing fcitx-table-extra fcitx-configtool
+nano ~/.xprofile
+---
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+---
+sudo reboot now
+```
+### 4.c. vim與PlugInstall
+```bash
+sudo pacman -S vim
+nano ~/.bashrc
+---
+alias vi=vim
+---
+source ~/.bashrc
+sh <(curl -L https://github.com/white1033/white1033-vimrc/raw/master/utils/install.sh)
+vi
+---
+:PlugInstall
+q
+:q
+---
+```
+**ps1**: 因為純arch linux的vim版號比較新，所以直接裝，不用再裝AUR版本。
+#### 4.c.\* : 兩個最常用技巧：
+##### (1) column selection:
+step 1: 游標移到區塊的初始位置(左上角)
+step 2: <C+V>
+step 3: 游標一到區塊的末端位置(右下角)
+step 4: c (這時候選中的列會全縮排)
+step 5: 游標移到第一列初始位置,做要做的事
+step 6: <Esc><Esc> (選過的列會全同步)
+##### (2) 複製/貼上:
+在**konsole**複製/貼上為: <C+S>+C/V
+在**urxvt**複製/貼上為: <C+A>+C/V
 
 (待續)
 
