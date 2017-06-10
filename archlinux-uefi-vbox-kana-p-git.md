@@ -264,11 +264,23 @@ java -version
 javac -version
 ```
 
+### 4.e. Cisco Packet Tracer:
+```bash
+tar xzvf PacketTracer63_linux.tar.gz
+cd PacketTracer63
+su
+./install
+```
+**ps1**: 最好裝在/home底下，這樣Run會自動找到執行檔。
+**ps2**: 懶得申請帳號，使用Guest就好。
+**ps2**: [下載處](http://www.cs.rpi.edu/~kotfid/packettracer/LinuxUbuntu/)
+
 (待續)
 
-1. packet tracer
-2. mariadb
-3. postgresql
+
+1. mariadb
+2. postgresql
+3. nodejs
 4. php
 5. ...
 
