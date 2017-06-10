@@ -246,20 +246,22 @@ q
 **ps1**: 因為純arch linux的vim版號比較新，所以直接裝，不用再裝AUR版本。
 #### 4.c.\* : 兩個最常用技巧：
 ##### (1) column selection:
-step 1: 游標移到區塊的初始位置(左上角)
-step 2: <C+V>
-step 3: 游標一到區塊的末端位置(右下角)
-step 4: c (這時候選中的列會全縮排)
-step 5: 游標移到第一列初始位置,做要做的事
-step 6: <Esc><Esc> (選過的列會全同步)
+- step 1: 游標移到區塊的初始位置(左上角)
+- step 2: <C+V>
+- step 3: 游標一到區塊的末端位置(右下角)
+- step 4: c (這時候選中的列會全縮排)
+- step 5: 游標移到第一列初始位置,做要做的事
+- step 6: <Esc><Esc> (選過的列會全同步)
+
 ##### (2) 複製/貼上:
-在**konsole**複製/貼上為: <C+S>+C/V
-在**urxvt**複製/貼上為: <C+A>+C/V
+- 在**konsole**複製/貼上為: <C+S>+C/V
+- 在**urxvt**複製/貼上為: <C+A>+C/V
 
 (待續)
-
-1. fcitx-chewing
-2. vim: PlugInstall
-3. openjdk
-4. ...
+1. openjdk
+2. packet tracer
+3. mariadb
+4. postgresql
+5. php
+6. ...
 
