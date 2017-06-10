@@ -182,6 +182,39 @@ yaourt -S awesome-git
 yaourt -S kana-p-git
 sudo reboot now
 ```
+
+## 4. 後續安裝設定
+### 4.a. 網路設定: /etc/hosts要修改，不然客體會一直斷線
+```bash
+nano /etc/hosts
+---
+127.0.0.1   localhost.localdomain   localhost
+127.0.1.1   <電腦名稱>.localdomain    <電腦名稱>
+---
+nano /home/<username>/<腳本名稱>.sh
+---
+#!/bin/bash
+
+d="<網路界面>"
+g="<閘道>"
+m="<遮罩>"
+
+echo -n 'ip: '
+read ip
+
+dns1="8.8.8.8"
+dns2="8.8.4.4"
+
+ip link set dev $d up
+ip route add $g dev $d
+ip route add default via $g dev $d
+ip addr add $ip/$m broadcast $b dev $d
+
+echo 'nameserver '$dns1 > /etc/resolv.conf
+echo 'nameserver '$dns2 >> /etc/resolv.conf
+---
+```
+
 (待續)
 
 1. fcitx-chewing
