@@ -265,10 +265,10 @@ javac -version
 ```
 
 (待續)
-1. openjdk
-2. packet tracer
-3. mariadb
-4. postgresql
-5. php
-6. ...
+
+1. packet tracer
+2. mariadb
+3. postgresql
+4. php
+5. ...
 
