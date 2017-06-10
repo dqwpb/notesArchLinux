@@ -214,8 +214,9 @@ echo 'nameserver '$dns1 > /etc/resolv.conf
 echo 'nameserver '$dns2 >> /etc/resolv.conf
 ---
 ```
-**ps1**: kana-p桌面上方功能列有**network manager**界面，存檔後可不用一直設定。
-**ps2**: **dhcp**功能待研究，參考: [官方網站](https://wiki.archlinux.org/index.php/Network_configuration_(正體中文))
+- **ps1**: kana-p桌面上方功能列有**network manager**界面，存檔後可不用一直設定。
+- **ps2**: **dhcp**功能待研究，參考: [官方網站](https://wiki.archlinux.org/index.php/Network_configuration_(正體中文))
+
 ### 4.b. 中文顯示與輸入法: fcitx
 ```bash
 sudo pacman -S fcitx fcitx-chewing fcitx-table-extra fcitx-configtool
@@ -243,7 +244,8 @@ q
 :q
 ---
 ```
-**ps1**: 因為純arch linux的vim版號比較新，所以直接裝，不用再裝AUR版本。
+**ps**: 因為純arch linux的vim版號比較新，所以直接裝，不用再裝AUR版本。
+
 #### 4.c.\* : 兩個最常用技巧：
 ##### (1) column selection:
 - step 1: 游標移到區塊的初始位置(左上角)
@@ -271,9 +273,9 @@ cd PacketTracer63
 su
 ./install
 ```
-**ps1**: 最好裝在/home底下，這樣Run會自動找到執行檔。
-**ps2**: 懶得申請帳號，使用Guest就好。
-**ps2**: [下載處](http://www.cs.rpi.edu/~kotfid/packettracer/LinuxUbuntu/)
+- **ps1**: 最好裝在/home底下，這樣Run會自動找到執行檔。
+- **ps2**: 懶得申請帳號，使用Guest就好。
+- **ps2**: [下載處](http://www.cs.rpi.edu/~kotfid/packettracer/LinuxUbuntu/)
 
 (待續)
 
