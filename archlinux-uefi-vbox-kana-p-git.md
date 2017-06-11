@@ -180,7 +180,19 @@ yaourt -S awesome-git
 ```
 - **ps1**: 實體機會碰到lua相衝突lib,將其命名為.bak.
 - **ps2**: PKGBUILD的cmake要加上-DGENERATE_DOC=0,否則會編譯不過. ([參考](https://aur.archlinux.org/packages/awesome-git/))
-### 3.d. kana-p-git:
+### 3.e. gcc-multilib: 取代gcc
+```bash
+sudo nano /etc/pacman.conf
+---
+[multilib]
+Include = /etc/pacman.d/mirrorlist
+---
+sudo pacman -Sywu
+yaourt -S gcc-multilib
+```
+**ps**: 會詢問是否移除gcc,選Y即可.
+
+### 3.f. kana-p-git:
 ```bash
 yaourt -S kana-p-git
 sudo reboot now
