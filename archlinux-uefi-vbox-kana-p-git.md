@@ -1,4 +1,4 @@
-# 安裝Virtualbox客體Arch Linux與一個極簡但功能完全的桌面:
+# 安裝Virtualbox客體Arch Linux與kana-p桌面:
 
 **說明**:以下都在客戶端執行,主體端以octopi裝完後會自動啟動該有服務.
 
@@ -156,6 +156,7 @@ sudo reboot now
 sudo pacman -S luarocks
 luarocks install penlight
 ```
+**ps**: 實體機安裝penlight須加上```--local```.
 ### 3.b. 安裝AUR Helper: yaourt (安裝AUR套件不須sudo)
 ```bash
 sudo nano /etc/pacman.conf
@@ -177,6 +178,8 @@ sudo pacman -U 套件名稱
 ```bash
 yaourt -S awesome-git
 ```
+**ps1**: 實體機會碰到lua相衝突lib,將其命名為.bak.
+**ps2**: PKGBUILD的cmake要加上-DGENERATE_DOC=0,否則會編譯不過. ([參考](https://aur.archlinux.org/packages/awesome-git/))
 ### 3.d. kana-p-git:
 ```bash
 yaourt -S kana-p-git
