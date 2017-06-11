@@ -61,9 +61,9 @@ stride = chunk/block         md2和md3的stride = 65526/4 = 16384, md4的stride 
 stripe = no(disk) * stride   md2和md3的stripe = 2*16384 = 32768, md4的stride = 2*8192 = 16384
 ---
 mkfs.vfat -v -F 32 /dev/sda1
-mkfs.ext4 -v -L <name{2,3,4}> -m -0 -b 4096 -E stride=<stride> stripe-width=<stripe> /dev/md{2,3,4}
-mkswap /dev/sda3
-swapon /dev/sda3
+mkfs.ext4 -v -L <name{2,3,4}> -m -0 -b 4096 -E stride=<stride>,stripe-width=<stripe> /dev/md{2,3,4}
+mkswap /dev/sda5
+swapon /dev/sda5
 ```
 
 接下來，把/md{2,3,4}看成/sda{2,3,4}做下去, /dev/sda5和/dev/sdb5都要swapon;
@@ -90,7 +90,7 @@ HOOKS="bash ... block mdadm_udev filesystem ... "
 ...
 BINARIES="/sbin/mdmon"
 ---
-mkinitcpio linux
+mkinitcpio -p linux
 pacman -S efibootmgr
 grub-install --recheck /dev/sda --efi-directory=/boot
 grub-mkconfig -o /boot/grub/grub.cfg
