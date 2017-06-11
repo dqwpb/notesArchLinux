@@ -234,6 +234,7 @@ echo 'nameserver '$dns2 >> /etc/resolv.conf
 
 ### 4.b. 中文顯示與輸入法: fcitx
 ```bash
+sudo localectl set-locale LANG=zh_TW.UTF-8
 sudo pacman -S fcitx fcitx-chewing fcitx-table-extra fcitx-configtool
 nano ~/.xprofile
 ---
